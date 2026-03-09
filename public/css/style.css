@@ -18,14 +18,14 @@ body{
     flex-wrap: wrap;
     justify-content:space-between;
     width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
 }
 .footer{
     background: rgb(120, 179, 239);
     text-align: center;
     padding: 4px;
-    position: fixed;
-    left: 0;
-    bottom: 0; 
     width: 100%;
     height: 50px;
 }
