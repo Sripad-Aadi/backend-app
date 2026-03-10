@@ -4,6 +4,7 @@ import session from "express-session";
 import mongoose from "mongoose";
 import dotenv from 'dotenv';
 import productRouter from "./routes/productRoute.js";
+import userRouter from './routes/userRoute.js'
 import dbConnect from './config/db.js'
 import storeRouter from "./routes/storeRoute.js";
 
@@ -27,7 +28,7 @@ app.use(
 app.use("/", storeRouter);
 // app.use("/auth", authRouter);
 app.use("/products", productRouter);
-// app.use("/users", userRouter);
+app.use("/users", userRouter);
 
 const startServer = async ()=>{
   await dbConnect();
