@@ -7,9 +7,16 @@
 </head>
 <body>
     <h2>Products Admin Page</h2>
+    <p><a href="/products/add">Add product</a></p>
     <ol>
         <% products.forEach(product=>{ %>
-            <li><%= product.name %>-<%= product.desc %>-<%= product.imageURL %>-<%= product.price %>/li>
+            <li><%= product.name %>-
+                <%= product.desc %>-
+                <%= product.imageURL %>-
+                <%= product.price %>
+                <p><a href="/products/<%= product._id %>/edit">Edit</a></p>
+                <p><a href="/products/<%= product._id %>/delete">Delete</a></p>
+            </li>
         <%})
         %>
     </ol>
