@@ -5,4 +5,13 @@ const getUsers = async (req, res)=>{
     res.render('users/index',{users})
 }
 
-export {getUsers}
+const addUserForm = async (req, res) =>{
+    res.render('users/add')
+}
+
+const addUser = async (req, res)=> {
+    await userModel.create(req.body)
+    res.redirect('/users')
+}
+
+export {getUsers, addUser, addUserForm}

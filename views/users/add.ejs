@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Add User Form</h2>
+    <form action="/users/add" method="post">
+        <p><input type="text" name="name" placeholder="Name of user"></p>
+        <p><input type="text" name="email" placeholder="email"></p>
+        <p><input type="password" name="password" placeholder="password"></p>
+        <label for="role">Role: </label>
+        <select name="role">
+            <option value="user">User</option>
+            <option value="admin">Admin</option>
+        </select>
+        
+        <p><button type="submit">Submit</button></p>
+    </form>
+</body>
+</html>
