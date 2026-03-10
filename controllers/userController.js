@@ -14,4 +14,22 @@ const addUser = async (req, res)=> {
     res.redirect('/users')
 }
 
-export {getUsers, addUser, addUserForm}
+const editUserForm = async (req,res)=>{
+    const id = req.params.id;
+    const user = await userModel.findOne({_id:id})
+    res.render('users/edit',{user})
+}
+
+const editUser = async (req, res)=>{
+    const id = req.params.id
+    await userModel.findByIdAndUpdate(id,req.body)
+    res.redirect('/users')
+}
+
+const deleteUser = async (req, res) =>{
+    const id = req.params.id
+    await userModel.findByIdAndDelete(id)
+    res.redirect('/users')
+}
+
+export {getUsers, addUser, addUserForm, editUserForm, editUser, deleteUser}
