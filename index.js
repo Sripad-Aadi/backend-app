@@ -10,6 +10,7 @@ import storeRouter from "./routes/storeRoute.js";
 
 const app = express();
 dotenv.config()
+app.use(cors());
 app.use(expressLayouts);
 app.set("view engine", "ejs");
 app.set("views", "views");
