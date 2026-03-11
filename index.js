@@ -8,7 +8,7 @@ import productRouter from "./routes/productRoute.js";
 import userRouter from './routes/userRoute.js'
 import dbConnect from './config/db.js'
 import storeRouter from "./routes/storeRoute.js";
-const cors = require("cors");
+
 
 const app = express();
 dotenv.config()
