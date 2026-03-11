@@ -10,10 +10,12 @@
     <p><a href="/products/add">Add product</a></p>
     <ol>
         <% products.forEach(product=>{ %>
+            <%console.log(product);%>
             <li><%= product.name %>-
                 <%= product.desc %>-
+                <%= product.rating %>-
                 <%= product.imageURL %>-
-                <%= product.price %>
+                <%= product.price %>-
                 <p><a href="/products/<%= product._id %>/edit">Edit</a></p>
                 <p><a href="/products/<%= product._id %>/delete">Delete</a></p>
             </li>

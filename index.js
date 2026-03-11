@@ -2,7 +2,6 @@ import express from "express";
 import expressLayouts from "express-ejs-layouts";
 import session from "express-session";
 import cors from "cors";
-import mongoose from "mongoose";
 import dotenv from 'dotenv';
 import { authenticateAdmin } from "./middleware/auth.js";
 import productRouter from "./routes/productRoute.js";
@@ -31,11 +30,11 @@ app.use(
   }),
 );
 
-//app.use("/auth", authRouter);
+app.use("/auth", authRouter);
 app.use("/store", storeRouter);
 app.use("/", authenticateAdmin, homeRouter);
-//app.use("/products",authenticateAdmin, productRouter);
-//app.use("/users",authenticateAdmin, userRouter);
+app.use("/products",authenticateAdmin, productRouter);
+app.use("/users",authenticateAdmin, userRouter);
 
 const startServer = async ()=>{
   await dbConnect();
