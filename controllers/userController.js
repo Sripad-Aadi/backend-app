@@ -1,4 +1,5 @@
 import userModel from '../models/userModel.js'
+import bcrypt from "bcrypt"
 
 const getUsers = async (req, res)=>{
     const users = await userModel.find()
