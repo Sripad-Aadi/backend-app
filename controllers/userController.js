@@ -11,7 +11,10 @@ const addUserForm = async (req, res) =>{
 }
 
 const addUser = async (req, res)=> {
-    await userModel.create(req.body)
+    const body = req.body;
+    const hashedPassword = await bcrypt.hash(body.password, 10);
+    body.password = hashedPassword;
+    await userModel.create(body);
     res.redirect('/users')
 }
 
