@@ -46,7 +46,6 @@ const signup = async (req, res) => {
 const signin = async (req, res) => {
   const { email, password } = req.body;
   const user = await userModel.findOne({ email });
-  console.log(user)
   if (user) {
     const isMatch = await bcrypt.compare(password, user.password);
     if (isMatch) {
