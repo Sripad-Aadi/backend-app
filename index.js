@@ -10,6 +10,7 @@ import authRouter from "./routes/authRoute.js";
 import userRouter from "./routes/userRoute.js";
 import dbConnect from './config/db.js'
 import storeRouter from "./routes/storeRoute.js";
+import orderRouter from "./routes/ordersRoute.js";
 
 
 const app = express();
@@ -33,6 +34,7 @@ app.use(
 
 app.use("/auth", authRouter);
 app.use("/store", storeRouter);
+app.use("/orders", orderRouter)
 app.use("/", authenticateAdmin, homeRouter);
 app.use("/products",authenticateAdmin, productRouter);
 app.use("/users",authenticateAdmin, userRouter);
