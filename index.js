@@ -3,7 +3,7 @@ import expressLayouts from "express-ejs-layouts";
 import session from "express-session";
 import cors from "cors";
 import dotenv from 'dotenv';
-import { authenticateAdmin } from "./middleware/auth.js";
+import { authenticateAdmin,authenticateUser } from "./middleware/auth.js";
 import productRouter from "./routes/productRoute.js";
 import homeRouter from "./routes/homeRoute.js";
 import authRouter from "./routes/authRoute.js";
@@ -32,9 +32,15 @@ app.use(
   }),
 );
 
+app.use((req, res, next) => {
+  res.locals.user = req.session.user;
+  next();
+});
+
+
 app.use("/auth", authRouter);
 app.use("/store", storeRouter);
-app.use("/orders", orderRouter)
+app.use("/orders",authenticateUser,orderRouter)
 app.use("/", authenticateAdmin, homeRouter);
 app.use("/products",authenticateAdmin, productRouter);
 app.use("/users",authenticateAdmin, userRouter);
